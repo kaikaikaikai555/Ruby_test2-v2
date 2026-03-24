@@ -1,0 +1,1330 @@
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2026-03-13 12:59:16.302096"], ["updated_at", "2026-03-13 12:59:16.302096"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2026-03-13 22:00:42 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.2.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.2.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 632)
+Completed 200 OK in 23ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 7371)
+
+
+Started GET "/" for ::1 at 2026-03-16 19:06:17 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.2.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.2.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.1ms | Allocations: 488)
+Completed 200 OK in 28ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 4255)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlans (20260316100907)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "plans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "start_time" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20260316100907"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/plans" for ::1 at 2026-03-16 19:12:16 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1252)
+  Rendered layout layouts/application.html.erb (Duration: 224.0ms | Allocations: 61841)
+Completed 200 OK in 230ms (Views: 225.0ms | ActiveRecord: 0.5ms | Allocations: 63532)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 19:12:43 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 14.9ms | Allocations: 3519)
+  Rendered plans/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 3844)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 4810)
+Completed 200 OK in 30ms (Views: 18.9ms | ActiveRecord: 0.7ms | Allocations: 9852)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 19:13:04 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"スケジュールアプリ", "content"=>"", "start_time"=>""}, "commit"=>"Create Plan"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mPlan Create (1.2ms)[0m  [1m[32mINSERT INTO "plans" ("title", "content", "start_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "スケジュールアプリ"], ["content", ""], ["start_time", nil], ["created_at", "2026-03-16 10:13:04.920924"], ["updated_at", "2026-03-16 10:13:04.920924"]]
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/plans/1
+Completed 302 Found in 64ms (ActiveRecord: 8.1ms | Allocations: 3766)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 19:13:04 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/_plan.html.erb (Duration: 1.0ms | Allocations: 219)
+  Rendered plans/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1349)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 2320)
+Completed 200 OK in 14ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 4918)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 19:17:14 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/_plan.html.erb (Duration: 0.4ms | Allocations: 203)
+  Rendered plans/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1080)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2271)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3596)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 19:21:14 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/_plan.html.erb (Duration: 1.1ms | Allocations: 203)
+  Rendered plans/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1070)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2260)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.6ms | Allocations: 3570)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 19:21:48 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.8ms | Allocations: 203)
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1410)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2612)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 3459)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 19:33:44 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.4ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2547)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3582)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms | Allocations: 4713)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDetailsToPlans (20260316104341)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "plans" ADD "end_time" datetime(6)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "plans" ADD "all_day" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20260316104341"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/plans/new" for ::1 at 2026-03-16 19:51:01 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 8.7ms | Allocations: 2139)
+  Rendered plans/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2443)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3645)
+Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 6777)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:05:31 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"    ", "content"=>"", "start_time"=>"", "end_time"=>"", "all_day"=>"0"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 901)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started POST "/plans" for ::1 at 2026-03-16 20:05:40 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "content"=>"", "start_time"=>"", "end_time"=>"", "all_day"=>"0"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 803)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started POST "/plans" for ::1 at 2026-03-16 20:05:46 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"aaaaaa", "content"=>"", "start_time"=>"", "end_time"=>"", "all_day"=>"0"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 803)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started POST "/plans" for ::1 at 2026-03-16 20:06:08 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"aaaaaa", "content"=>"aa", "start_time"=>"2026-03-16T20:05", "end_time"=>"2026-03-17T20:06", "all_day"=>"1"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 803)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started GET "/plans" for ::1 at 2026-03-16 20:06:14 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 1.0ms | Allocations: 209)
+  Rendered plans/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1548)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 2764)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.9ms | Allocations: 3793)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:06:56 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 3.1ms | Allocations: 1556)
+  Rendered plans/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1846)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2810)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 3138)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:07:37 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"テスト予定", "content"=>"課題の動作確認中", "start_time"=>"2026-03-16T20:07", "end_time"=>"2026-03-20T13:07", "all_day"=>"1"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 797)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started POST "/plans" for ::1 at 2026-03-16 20:08:36 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"テスト予定", "content"=>"課題の動作確認中", "start_time"=>"2026-03-16T20:07", "end_time"=>"2026-03-20T13:07", "all_day"=>"1"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 797)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started POST "/plans" for ::1 at 2026-03-16 20:08:49 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"テスト予定", "content"=>"課題の動作確認中", "start_time"=>"2026-03-16T20:07", "end_time"=>"2026-03-20T13:07", "all_day"=>"1"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 797)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started GET "/plans" for ::1 at 2026-03-16 20:09:26 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.9ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 787)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 1776)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.9ms | Allocations: 2072)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:09:32 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.9ms | Allocations: 1076)
+  Rendered plans/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1165)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2129)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 2401)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:10:10 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"テスト予定", "content"=>"課題の動作確認中", "start_time"=>"2026-03-16T20:10", "end_time"=>"2026-03-18T20:10", "all_day"=>"1"}, "commit"=>"保存する"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 809)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'end_time' for Plan.):
+  
+app/controllers/plans_controller.rb:24:in `create'
+Started GET "/" for ::1 at 2026-03-16 20:27:38 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered plans/index.html.erb within layouts/application (Duration: 16.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 317.6ms | GC: 28.5ms)
+Completed 200 OK in 369ms (Views: 324.4ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 29.4ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:28:31 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 43.8ms | GC: 18.1ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 47.4ms | GC: 20.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.9ms | GC: 29.7ms)
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 29.7ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:28:36 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:28:36 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:28:47 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"テスト予定", "content"=>"だだだだだだ", "start_time"=>"2026-03-16T20:28", "end_time"=>"2026-03-19T20:28", "all_day"=>"1"}, "commit"=>"保存する"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mPlan Create (1.7ms)[0m  [1m[32mINSERT INTO "plans" ("title", "content", "start_time", "created_at", "updated_at", "end_time", "all_day") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "テスト予定"], ["content", "だだだだだだ"], ["start_time", "2026-03-16 20:28:00"], ["created_at", "2026-03-16 20:28:47.583304"], ["updated_at", "2026-03-16 20:28:47.583304"], ["end_time", "2026-03-19 20:28:00"], ["all_day", 1]]
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/plans/2
+Completed 302 Found in 15ms (ActiveRecord: 6.2ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/plans/2" for ::1 at 2026-03-16 20:28:47 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:30:19 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:6
+  Rendered plans/_plan.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered plans/_plan.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:30:53 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:30:57 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"　　　　", "content"=>"　　　　　", "start_time"=>"", "end_time"=>"", "all_day"=>"0"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 2.9ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:31:16 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"ああああ　　　", "start_time"=>"2026-03-16T20:31", "end_time"=>"2026-03-14T20:31", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.1ms)
+Completed 422 Unprocessable Content in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:32:15 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"ああああ　　　", "start_time"=>"2026-03-16T20:31", "end_time"=>"2026-03-14T20:31", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 2.8ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 20ms (Views: 9.9ms | ActiveRecord: 1.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:32:18 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  Rendered plans/index.html.erb within layouts/application (Duration: 7.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `strftime' for nil:NilClass)
+    22:       <tr>
+    23:         <td><%= plan.id %></td>
+    24:         <td><%= plan.title %></td>
+    25:         <td><%= plan.start_time.strftime("%Y/%m/%d") %></td>
+    26:         <td><%= plan.end_time.present? ? plan.end_time.strftime("%Y/%m/%d") : "" %></td>
+    27:         <td><%= plan.all_day ? "○" : "" %></td>
+    28:         <td><%= plan.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+  
+app/views/plans/index.html.erb:25
+app/views/plans/index.html.erb:21
+Started GET "/" for ::1 at 2026-03-16 20:33:13 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  Rendered plans/index.html.erb within layouts/application (Duration: 21.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `strftime' for nil:NilClass)
+    22:       <tr>
+    23:         <td><%= plan.id %></td>
+    24:         <td><%= plan.title %></td>
+    25:         <td><%= plan.start_time.strftime("%Y/%m/%d") %></td>
+    26:         <td><%= plan.end_time.present? ? plan.end_time.strftime("%Y/%m/%d") : "" %></td>
+    27:         <td><%= plan.all_day ? "○" : "" %></td>
+    28:         <td><%= plan.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+  
+app/views/plans/index.html.erb:25
+app/views/plans/index.html.erb:21
+Started GET "/" for ::1 at 2026-03-16 20:33:28 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `strftime' for nil:NilClass)
+    22:       <tr>
+    23:         <td><%= plan.id %></td>
+    24:         <td><%= plan.title %></td>
+    25:         <td><%= plan.start_time.strftime("%Y/%m/%d") %></td>
+    26:         <td><%= plan.end_time.present? ? plan.end_time.strftime("%Y/%m/%d") : "" %></td>
+    27:         <td><%= plan.all_day ? "○" : "" %></td>
+    28:         <td><%= plan.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+  
+app/views/plans/index.html.erb:25
+app/views/plans/index.html.erb:21
+Started GET "/" for ::1 at 2026-03-16 20:36:04 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 12.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 72.2ms | GC: 0.0ms)
+Completed 200 OK in 85ms (Views: 73.9ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:39:27 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 17.0ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 19.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:39:39 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"", "content"=>"あああ", "start_time"=>"2026-03-16T20:39", "end_time"=>"2026-03-17T20:39", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 10ms (Views: 5.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:39:50 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"ああああああああああああああああああああああああああああああああああああああああああ", "content"=>"あああ", "start_time"=>"2026-03-16T20:39", "end_time"=>"2026-03-17T20:39", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 3.0ms | GC: 0.9ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 3.4ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.9ms)
+Completed 422 Unprocessable Content in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:40:09 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"あああ", "start_time"=>"2026-03-16T20:39", "end_time"=>"2026-03-15T20:39", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:41:19 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "start_time"=>"2026-03-16T20:39", "end_time"=>"2026-03-17T20:39", "all_day"=>"1"}, "commit"=>"保存する"}
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:41:43 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"あああああ", "start_time"=>"2026-03-16T20:39", "end_time"=>"2026-03-17T20:39", "all_day"=>"1"}, "commit"=>"保存する"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mPlan Create (5.0ms)[0m  [1m[32mINSERT INTO "plans" ("title", "content", "start_time", "created_at", "updated_at", "end_time", "all_day") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "あああ"], ["content", "あああああ"], ["start_time", "2026-03-16 20:39:00"], ["created_at", "2026-03-16 20:41:43.488229"], ["updated_at", "2026-03-16 20:41:43.488229"], ["end_time", "2026-03-17 20:39:00"], ["all_day", 1]]
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/plans/3
+Completed 302 Found in 20ms (ActiveRecord: 8.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:41:43 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 7.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:41:44 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:41:47 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:41:48 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:41:50 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:41:52 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:41:55 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:41:56 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 10.1ms | GC: 5.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | GC: 5.5ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 5.5ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:41:59 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3/edit" for ::1 at 2026-03-16 20:42:01 +0900
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/edit.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered plans/edit.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:42:03 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 0.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:42:04 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.0ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.2ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 20:42:08 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `strftime' for nil:NilClass)
+     7: 
+     8: <div>
+     9:   <strong>開始日:</strong>
+    10:   <%= @plan.start_time.strftime("%Y/%m/%d") %>
+    11: </div>
+    12: 
+    13: <div>
+  
+app/views/plans/show.html.erb:10
+Started GET "/plans" for ::1 at 2026-03-16 20:45:56 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `title' for nil:NilClass)
+    2: 
+    3: <div>
+    4:   <strong>タイトル:</strong>
+    5:   <%= @plan.title %>
+    6: </div>
+    7: 
+    8: <div>
+  
+app/views/plans/index.html.erb:5
+Started GET "/plans" for ::1 at 2026-03-16 20:46:00 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `title' for nil:NilClass)
+    2: 
+    3: <div>
+    4:   <strong>タイトル:</strong>
+    5:   <%= @plan.title %>
+    6: </div>
+    7: 
+    8: <div>
+  
+app/views/plans/index.html.erb:5
+Started GET "/plans" for ::1 at 2026-03-16 20:46:04 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.5ms | GC: 2.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 2.1ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `title' for nil:NilClass)
+    2: 
+    3: <div>
+    4:   <strong>タイトル:</strong>
+    5:   <%= @plan.title %>
+    6: </div>
+    7: 
+    8: <div>
+  
+app/views/plans/index.html.erb:5
+Started GET "/plans" for ::1 at 2026-03-16 20:46:27 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `title' for nil:NilClass)
+    2: 
+    3: <div>
+    4:   <strong>タイトル:</strong>
+    5:   <%= @plan.title %>
+    6: </div>
+    7: 
+    8: <div>
+  
+app/views/plans/index.html.erb:5
+Started GET "/plans" for ::1 at 2026-03-16 20:48:21 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 8.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.3ms)
+Completed 200 OK in 18ms (Views: 12.4ms | ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:48:27 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:48:29 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 3.7ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 20:48:32 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+
+Causes:
+NoMethodError (undefined method `strftime' for nil:NilClass)
+     7: 
+     8: <div>
+     9:   <strong>開始日:</strong>
+    10:   <%= @plan.start_time.strftime("%Y/%m/%d") %>
+    11: </div>
+    12: 
+    13: <div>
+  
+app/views/plans/show.html.erb:10
+Started GET "/plans/1" for ::1 at 2026-03-16 20:50:23 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.1ms)
+Completed 200 OK in 12ms (Views: 4.1ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:50:25 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/3" for ::1 at 2026-03-16 20:50:26 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:50:27 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/1" for ::1 at 2026-03-16 20:50:28 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:50:29 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans/2" for ::1 at 2026-03-16 20:50:30 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:50:31 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:54:07 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 14.2ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | GC: 19.9ms)
+Completed 200 OK in 48ms (Views: 37.2ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 19.9ms)
+
+
+Started DELETE "/plans/3" for ::1 at 2026-03-16 20:54:12 +0900
+Processing by PlansController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mPlan Destroy (1.1ms)[0m  [1m[31mDELETE FROM "plans" WHERE "plans"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/plans
+Completed 303 See Other in 11ms (ActiveRecord: 4.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:54:12 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.5ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started DELETE "/plans/1" for ::1 at 2026-03-16 20:54:14 +0900
+Processing by PlansController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mPlan Destroy (1.0ms)[0m  [1m[31mDELETE FROM "plans" WHERE "plans"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/plans
+Completed 303 See Other in 6ms (ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:54:14 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/plans/2" for ::1 at 2026-03-16 20:54:14 +0900
+Processing by PlansController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mPlan Destroy (1.4ms)[0m  [1m[31mDELETE FROM "plans" WHERE "plans"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/plans
+Completed 303 See Other in 6ms (ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:54:14 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:57:44 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 7.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.7ms)
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 20:57:45 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 4.0ms | GC: 0.8ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 5.4ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.8ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.3ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 20:57:56 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"ああああ", "content"=>"ああああああああ", "start_time"=>"2026-03-16T20:57", "end_time"=>"2026-03-17T20:57", "all_day"=>"1"}, "commit"=>"保存する"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mPlan Create (1.4ms)[0m  [1m[32mINSERT INTO "plans" ("title", "content", "start_time", "created_at", "updated_at", "end_time", "all_day") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "ああああ"], ["content", "ああああああああ"], ["start_time", "2026-03-16 20:57:00"], ["created_at", "2026-03-16 20:57:56.863963"], ["updated_at", "2026-03-16 20:57:56.863963"], ["end_time", "2026-03-17 20:57:00"], ["all_day", 1]]
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/plans/4
+Completed 302 Found in 12ms (ActiveRecord: 4.7ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/plans/4" for ::1 at 2026-03-16 20:57:56 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.8ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/plans/4/edit" for ::1 at 2026-03-16 20:57:58 +0900
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/edit.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered plans/edit.html.erb within layouts/application (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/plans/4" for ::1 at 2026-03-16 20:58:02 +0900
+Processing by PlansController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"ああああ", "content"=>"ああああああああええええ", "start_time"=>"2026-03-16T20:57", "end_time"=>"2026-03-17T20:57", "all_day"=>"1"}, "commit"=>"保存する", "id"=>"4"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:40:in `block in update'
+  [1m[36mPlan Update (2.6ms)[0m  [1m[33mUPDATE "plans" SET "content" = ?, "updated_at" = ? WHERE "plans"."id" = ?[0m  [["content", "ああああああああええええ"], ["updated_at", "2026-03-16 20:58:02.060750"], ["id", 4]]
+  ↳ app/controllers/plans_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/plans/4
+Completed 303 See Other in 11ms (ActiveRecord: 3.9ms (2 queries, 0 cached) | GC: 2.7ms)
+
+
+Started GET "/plans/4" for ::1 at 2026-03-16 20:58:02 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | GC: 9.9ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 9.9ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:58:03 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | GC: 0.8ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/plans/4" for ::1 at 2026-03-16 20:58:06 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:58:08 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/plans/4" for ::1 at 2026-03-16 20:58:08 +0900
+Processing by PlansController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mPlan Destroy (1.0ms)[0m  [1m[31mDELETE FROM "plans" WHERE "plans"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/plans
+Completed 303 See Other in 6ms (ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 20:58:09 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 21:00:21 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 6.3ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 1.1ms)
+Completed 200 OK in 20ms (Views: 11.1ms | ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/plans/new" for ::1 at 2026-03-16 21:00:23 +0900
+Processing by PlansController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/new.html.erb within layouts/application
+  Rendered plans/_form.html.erb (Duration: 3.0ms | GC: 0.0ms)
+  Rendered plans/new.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.2ms)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 0.3ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started POST "/plans" for ::1 at 2026-03-16 21:00:33 +0900
+Processing by PlansController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plan"=>{"title"=>"あああ", "content"=>"あああああ", "start_time"=>"2026-03-16T21:00", "end_time"=>"2026-03-16T21:00", "all_day"=>"1"}, "commit"=>"保存する"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mPlan Create (2.3ms)[0m  [1m[32mINSERT INTO "plans" ("title", "content", "start_time", "created_at", "updated_at", "end_time", "all_day") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "あああ"], ["content", "あああああ"], ["start_time", "2026-03-16 21:00:00"], ["created_at", "2026-03-16 21:00:33.780344"], ["updated_at", "2026-03-16 21:00:33.780344"], ["end_time", "2026-03-16 21:00:00"], ["all_day", 1]]
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/plans/5
+Completed 302 Found in 18ms (ActiveRecord: 6.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/plans/5" for ::1 at 2026-03-16 21:00:33 +0900
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  Rendering layout layouts/application.html.erb
+  Rendering plans/show.html.erb within layouts/application
+  Rendered plans/show.html.erb within layouts/application (Duration: 4.6ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 0.6ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 21:00:35 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 6.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | GC: 1.0ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 1.0ms)
+
+
+Started DELETE "/plans/5" for ::1 at 2026-03-16 21:00:37 +0900
+Processing by PlansController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"5"}
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" WHERE "plans"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/plans_controller.rb:63:in `set_plan'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mPlan Destroy (0.8ms)[0m  [1m[31mDELETE FROM "plans" WHERE "plans"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plans_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/plans
+Completed 303 See Other in 5ms (ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/plans" for ::1 at 2026-03-16 21:00:37 +0900
+Processing by PlansController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering plans/index.html.erb within layouts/application
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT "plans".* FROM "plans" ORDER BY "plans"."created_at" DESC[0m
+  ↳ app/views/plans/index.html.erb:21
+  [1m[36mPlan Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "plans"[0m
+  ↳ app/views/plans/index.html.erb:39
+  Rendered plans/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
